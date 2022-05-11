@@ -1,10 +1,10 @@
 import './App.css';
-import SimpleState from './state/SimpleState';
+import StepTimer from './state/StepTimer';
 
 function App() {
   return (
     <div className="App">
-      <SimpleState></SimpleState>
+      <StepTimer format={24}></StepTimer>
     </div>
   );
 }
