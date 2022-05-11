@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import SwipeGate from './swipe/SwipeGate';
+import { empList } from './data/emp';
 
 function App() {
+  let [index, setIndex] = useState(0);
+
+  const Swipe = () => {
+    console.log('click')
+    if (index < empList.length) {
+      setIndex(++index);
+    }
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hello world !!!!
-        </a>
-      </header>
+        <SwipeGate emp={empList[index]}></SwipeGate>
+        <button onClick={() => Swipe()}>Swipe</button>
     </div>
   );
 }
