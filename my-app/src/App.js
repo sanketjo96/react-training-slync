@@ -1,23 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import SimpleTable from './props/SimpleTable';
 
 function App() {
+  /**
+   * Simple table component
+   * is rerendering in optimized way whenever
+   * we are changing prop
+   */
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hello world !!!!
-        </a>
-      </header>
+      <SimpleTable border={3}></SimpleTable>
     </div>
   );
 }
