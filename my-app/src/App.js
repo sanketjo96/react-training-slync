@@ -1,5 +1,5 @@
 import './App.css';
-import CarList from './data/CarList';
+import CarList from './List/CarList';
 
 function App() {
   return (
