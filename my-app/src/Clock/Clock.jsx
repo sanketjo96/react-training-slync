@@ -20,7 +20,7 @@ export default class Clock extends Component {
     render() {
         console.log('Mounting: in render')
         return (
-            <div>Clock</div>
+            <div>{this.state.date.toLocaleTimeString()}</div>
         )
     }
 }
