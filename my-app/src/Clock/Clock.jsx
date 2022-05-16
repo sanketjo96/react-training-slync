@@ -9,18 +9,38 @@ export default class Clock extends Component {
         console.log('Mounting: in constructor')
     }
 
-    static getDerivedStateFromProps() {
-        console.log('Mounting: in getDerivedStateFromProps')
+    changeDateState = (e) => {
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                date: new Date()
+            }
+        })
     }
 
-    componentDidMount() {
-        console.log('Mounting: in componentDidMount')
+    static getDerivedStateFromProps() {
+        console.log('Update: in getDerivedStateFromProps')
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('Update: in shouldComponentUpdate')
+        return true
+    }
+
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log('Update: in getSnapshotBeforeUpdate')
+        return {scroll: '100'}
+    }
+
+    componentDidUpdate(prevProps, prevState,data) {
+        console.log(data)
+        console.log('Update: in componentDidUpdate')
     }
 
     render() {
-        console.log('Mounting: in render')
+        console.log('Update: in render')
         return (
-            <div>Clock</div>
+            <div onMouseOver={this.changeDateState}>{this.state.date.toLocaleTimeString()}</div>
         )
     }
 }
