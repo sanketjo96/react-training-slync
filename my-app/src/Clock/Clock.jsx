@@ -20,6 +20,7 @@ export default class Clock extends Component {
 
     static getDerivedStateFromProps() {
         console.log('Update: in getDerivedStateFromProps')
+        return null
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -37,6 +38,10 @@ export default class Clock extends Component {
         console.log('Update: in componentDidUpdate')
     }
 
+    componentWillUnmount() {
+        console.log('Unmount: in componentWillUnmount')
+    }
+ 
     render() {
         console.log('Update: in render')
         return (
