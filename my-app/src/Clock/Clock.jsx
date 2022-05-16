@@ -4,48 +4,43 @@ export default class Clock extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            date: new Date()
+            date: new Date(),
+            hrs12: false,
         }
-        console.log('Mounting: in constructor')
     }
 
-    changeDateState = (e) => {
-        this.setState(prevState => {
+    tick = () => {
+        this.setState((preState) => {
             return {
-                ...prevState,
+                ...preState,
                 date: new Date()
             }
         })
     }
 
-    static getDerivedStateFromProps() {
-        console.log('Update: in getDerivedStateFromProps')
-        return null
+    static getDerivedStateFromProps(props, state) {
+        const is12fmt = props.fmt === 12
+        if (is12fmt !== state.hrs12) {
+            console.log('Update: in getDerivedStateFromProps')
+            return {
+                ...state,
+                hrs12: is12fmt
+            };
+        }
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log('Update: in shouldComponentUpdate')
-        return true
-    }
-
-    getSnapshotBeforeUpdate(prevProps, prevState) {
-        console.log('Update: in getSnapshotBeforeUpdate')
-        return {scroll: '100'}
-    }
-
-    componentDidUpdate(prevProps, prevState,data) {
-        console.log(data)
-        console.log('Update: in componentDidUpdate')
+    componentDidMount() {
+        this.timer = setInterval(this.tick, 1000)
     }
 
     componentWillUnmount() {
-        console.log('Unmount: in componentWillUnmount')
+        clearInterval(this.timer)
     }
- 
+
     render() {
         console.log('Update: in render')
         return (
-            <div onMouseOver={this.changeDateState}>{this.state.date.toLocaleTimeString()}</div>
+            <div onMouseOver={this.changeDateState}>{this.state.date.toLocaleTimeString('en-us', { hour12: this.state.hrs12 })}</div>
         )
     }
 }
