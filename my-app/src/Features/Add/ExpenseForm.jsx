@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { months } from '../../Data/Months'
-
-
-
+import { v4 as uuidv4 } from 'uuid';
 export default class ExpenseForm extends Component {
     constructor(props) {
         super(props)
@@ -44,7 +42,7 @@ export default class ExpenseForm extends Component {
 
     submitHandler = (e) => {
         // console.log(this.state)
-        this.props.onSubmit(this.state)
+        this.props.onSubmit({...this.state, id: uuidv4()})
         e.preventDefault()
     }
 

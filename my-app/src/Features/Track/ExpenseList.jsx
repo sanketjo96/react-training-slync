@@ -7,8 +7,7 @@ export default class ExpenseList extends Component {
     return (
       <div className='expense-list-container'>
         {this.props.list.map((data) => {
-          const { name, month, price } = data
-          return <ExpenseItem name={name} month={month} price={price} />
+          return <ExpenseItem data={data} onDelete={this.props.onDelete}/>
         })}
       </div>
     )

@@ -20,14 +20,17 @@ export default class App extends Component {
   }
 
   handlerListDelete = (id) => {
-    
+    this.setState((prevState) => ({
+      ...prevState,
+      expenseList: prevState.expenseList.filter(item => item.id !== id)
+    }))
   }
 
   render() {
     return (
       <div className="App">
         <ExpenseForm onSubmit={this.handlerFormSubmit}></ExpenseForm>
-        <ExpenseList list={this.state.expenseList}></ExpenseList>
+        <ExpenseList list={this.state.expenseList} onDelete={this.handlerListDelete}></ExpenseList>
       </div>
     )
   }
