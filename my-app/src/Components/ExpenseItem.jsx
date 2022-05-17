@@ -11,11 +11,16 @@ export default function ExpenseItem(props) {
             month,
             price
         },
+        onUpdate,
         onDelete
     } = props
 
     const deleteHanlder = (id) => {
         onDelete(id)
+    }
+
+    const updateHanlder = (id) => {
+        onUpdate(id)
     }
 
     return (
@@ -25,12 +30,12 @@ export default function ExpenseItem(props) {
             <div className='expense-item-seg price'>{price}</div>
 
             <div className="icons">
-                <div className='expense-item-seg icon'>
+                <div className='expense-item-seg icon' onClick={() => updateHanlder(id)}>
                     <img className='edit-icon' alt={'edit'} src={EditIcon} />
                 </div>
 
                 <div className='expense-item-seg icon' onClick={() => deleteHanlder(id)}>
-                    <img className='delete-icon' alt={'delete'} src={DeleteIcon} />
+                    <img className='delete-icon' alt={'delete'} src={DeleteIcon}/>
                 </div>
             </div>
         </div>

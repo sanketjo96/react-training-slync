@@ -6,9 +6,23 @@ export default class ExpenseForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: '',
-            month: 1,
-            price: 0,
+            id: props?.data?.id || '',
+            name: props?.data?.name || '',
+            month: props?.data?.month || 1,
+            price: props?.data?.price || '',
+        }
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (prevState.name !== nextProps.data.name) {
+            return {
+                id: nextProps?.data?.id || '',
+                name: nextProps?.data?.name || '',
+                month: nextProps?.data?.month || 1,
+                price: nextProps?.data?.price || '',
+            }
+        } else {
+            return null
         }
     }
 
@@ -26,7 +40,7 @@ export default class ExpenseForm extends Component {
         this.setState((preState) => {
             return {
                 ...preState,
-                price: e.target.value
+                price: parseInt(e.target.value, 10)
             }
         })
     }
@@ -42,8 +56,10 @@ export default class ExpenseForm extends Component {
     }
 
     submitHandler = (e) => {
-        // console.log(this.state)
-        this.props.onSubmit({ ...this.state, id: uuidv4() })
+        this.props.onSubmit({
+            ...this.state,
+            ...(this.props.mode === 'update' ? {} : { id: uuidv4() })
+        })
         e.preventDefault()
     }
 

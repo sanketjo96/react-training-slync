@@ -1,36 +1,74 @@
 import React, { Component } from 'react'
 import './App.css';
 import { expenseData } from './Data/Seed';
-import ExpenseForm from './Features/Add/ExpenseForm';
-import ExpenseList from './Features/Track/ExpenseList';
+import ExpenseTrack from './Features/Track/ExpenseTrack';
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      expenseList: expenseData
+      expenseList: expenseData,
+      isAddMode: false,
+      formMode: 'add',
+      dataToUpdate: {}
     }
   }
 
-  handlerFormSubmit = (data) => {
-    this.setState((prevState) => ({
-      ...prevState,
-      expenseList: [...prevState.expenseList, data]
-    }))
+  handleFormSubmit = (data) => {
+    this.setState((prevState) => {
+      if (prevState.formMode === 'update') {
+        return {
+          ...prevState,
+          isAddMode: false,
+          expenseList: [...prevState.expenseList.filter(item => item.id !== data.id), data]
+        }
+      } else {
+        return {
+          ...prevState,
+          isAddMode: false,
+          expenseList: [...prevState.expenseList, data]
+        }
+      }
+    })
   }
 
-  handlerListDelete = (id) => {
+
+  handleListDelete = (id) => {
     this.setState((prevState) => ({
       ...prevState,
       expenseList: prevState.expenseList.filter(item => item.id !== id)
     }))
   }
 
+
+  handleListUpdate = (id) => {
+    this.setState((prevState) => ({
+      ...prevState,
+      formMode: 'update',
+      dataToUpdate: prevState.expenseList.find(item => item.id === id)
+    }))
+  }
+
+  addExpense = () => {
+    this.setState((prevState) => ({
+      ...prevState,
+      isAddMode: true
+    }))
+  }
+
   render() {
     return (
       <div className="App">
-        <ExpenseForm onSubmit={this.handlerFormSubmit}></ExpenseForm>
-        <ExpenseList list={this.state.expenseList} onDelete={this.handlerListDelete}></ExpenseList>
+        <ExpenseTrack
+          formMode={this.state.formMode} 
+          dataToUpdate={this.state.dataToUpdate} 
+          handleFormSubmit={this.handleFormSubmit}
+          isAddMode={this.state.isAddMode}
+          list={this.state.expenseList}
+          addExpense={this.addExpense}
+          onDelete={this.handleListDelete}
+          onUpdate={this.handleListUpdate}>
+        </ExpenseTrack>
       </div>
     )
   }

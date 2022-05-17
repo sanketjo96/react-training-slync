@@ -35,3 +35,10 @@ export const months = [{
     name: 'Dec',
     id: 12,
 }]
+
+export const monthMap = {}
+months.map(month => {
+    if (!monthMap[month.id]) {
+        monthMap[month.id] = month.name
+    }
+})

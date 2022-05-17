@@ -19,27 +19,18 @@ export const expenseData = [{
     month: '2',
     price: 1500
 }, {
-    id: "5",
-    name: 'Party',
-    month: '2',
-    price: 10500
-}, {
     id: "6",
     name: 'Transport',
     month: '1',
     price: 700
 }, {
+    id: "7",
     name: 'Petrol',
     month: '1',
     price: 1500
 }, {
-    id: "7",
+    id: "8",
     name: 'Present',
     month: '1',
     price: 370
-}, {
-    id: "8",
-    name: 'Books',
-    month: '1',
-    price: 100
 }]
