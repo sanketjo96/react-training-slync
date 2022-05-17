@@ -1,0 +1,11 @@
+.expense-item-container {
+    min-width: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+    margin: 10px;
+}
+
+.expense-item-container .expense-item-seg {
+    padding: 5px;
+}

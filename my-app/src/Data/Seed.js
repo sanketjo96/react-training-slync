@@ -1,0 +1,37 @@
+export const expenseData = [{
+    name: 'Petrol',
+    month: '3',
+    price: 500
+}, {
+    name: 'Others',
+    month: '3',
+    price: 1500
+}, {
+    name: 'Transport',
+    month: '3',
+    price: 1000
+}, {
+    name: 'Dinner',
+    month: '2',
+    price: 1500
+}, {
+    name: 'Party',
+    month: '2',
+    price: 10500
+}, {
+    name: 'Transport',
+    month: '1',
+    price: 700
+}, {
+    name: 'Petrol',
+    month: '1',
+    price: 1500
+}, {
+    name: 'Present',
+    month: '1',
+    price: 370
+}, {
+    name: 'Books',
+    month: '1',
+    price: 100
+}]
