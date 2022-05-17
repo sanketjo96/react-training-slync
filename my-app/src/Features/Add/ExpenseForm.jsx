@@ -43,7 +43,8 @@ export default class ExpenseForm extends Component {
     }
 
     submitHandler = (e) => {
-        console.log(this.state)
+        // console.log(this.state)
+        this.props.onSubmit(this.state)
         e.preventDefault()
     }
 
