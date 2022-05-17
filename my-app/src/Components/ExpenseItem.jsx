@@ -1,5 +1,8 @@
 import React from 'react'
 import './ExpenseItem.css'
+import DeleteIcon from '../icons/icons8-remove.svg'
+import EditIcon from '../icons/icons8-edit.svg'
+
 export default function ExpenseItem(props) {
     const {
         data: {
@@ -14,12 +17,22 @@ export default function ExpenseItem(props) {
     const deleteHanlder = (id) => {
         onDelete(id)
     }
+
     return (
         <div key={name} className='expense-item-container'>
             <div className='expense-item-seg month'>{month}</div>
             <div className='expense-item-seg name'>{name}</div>
             <div className='expense-item-seg price'>{price}</div>
-            <div className='expense-item-seg delete-icon' onClick={() => deleteHanlder(id)}>delete</div>
+
+            <div className="icons">
+                <div className='expense-item-seg icon'>
+                    <img className='edit-icon' alt={'edit'} src={EditIcon} />
+                </div>
+
+                <div className='expense-item-seg icon' onClick={() => deleteHanlder(id)}>
+                    <img className='delete-icon' alt={'delete'} src={DeleteIcon} />
+                </div>
+            </div>
         </div>
     )
 }
