@@ -13,19 +13,6 @@ export default class ExpenseForm extends Component {
         }
     }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        if (prevState.name !== nextProps.data.name) {
-            return {
-                id: nextProps?.data?.id || '',
-                name: nextProps?.data?.name || '',
-                month: nextProps?.data?.month || 1,
-                price: nextProps?.data?.price || '',
-            }
-        } else {
-            return null
-        }
-    }
-
     handleName = (e) => {
         this.setState((preState) => {
             return {
@@ -58,9 +45,13 @@ export default class ExpenseForm extends Component {
     submitHandler = (e) => {
         this.props.onSubmit({
             ...this.state,
-            ...(this.props.mode === 'update' ? {} : { id: uuidv4() })
+            ...(this.props.data.id ? {} : { id: uuidv4() })
         })
         e.preventDefault()
+    }
+
+    hanldeOnCancel = () => {
+        this.props.onCancel()
     }
 
 
@@ -88,7 +79,8 @@ export default class ExpenseForm extends Component {
                         </select>
                     </div>
 
-                    <button type="submit">Submit</button>
+                    <button className="primary" type="submit">Submit</button>
+                    <button onClick={this.hanldeOnCancel}>Cancel</button>
                 </form>
             </div>
         )

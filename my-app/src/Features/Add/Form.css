@@ -1,6 +1,5 @@
 .expense-form {
     display: flex;
-    margin-top: 30px;
     height: 300px;
     padding: 10px;
     -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
@@ -35,6 +34,8 @@ label {
 
 button {
     display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 10px;
     padding: 12px 24px;
     background: rgb(220, 220, 220);
     font-weight: bold;
@@ -47,7 +48,11 @@ button {
     margin-top: 10px;
 }
 
-button:hover {
+button.primary {
     background: #8bc34a;
     color: #ffffff;
+}
+
+button:hover[type=""] {
+    color: rgb(120, 120, 120);
 }

@@ -8,24 +8,23 @@ export default class App extends Component {
     super(props)
     this.state = {
       expenseList: expenseData,
-      isAddMode: false,
-      formMode: 'add',
-      dataToUpdate: {}
+      isFormMode: false,
+      formData: {}
     }
   }
 
   handleFormSubmit = (data) => {
     this.setState((prevState) => {
-      if (prevState.formMode === 'update') {
+      if (data.id) {
         return {
           ...prevState,
-          isAddMode: false,
+          isFormMode: false,
           expenseList: [...prevState.expenseList.filter(item => item.id !== data.id), data]
         }
       } else {
         return {
           ...prevState,
-          isAddMode: false,
+          isFormMode: false,
           expenseList: [...prevState.expenseList, data]
         }
       }
@@ -44,15 +43,23 @@ export default class App extends Component {
   handleListUpdate = (id) => {
     this.setState((prevState) => ({
       ...prevState,
-      formMode: 'update',
-      dataToUpdate: prevState.expenseList.find(item => item.id === id)
+      isFormMode: true,
+      formData: prevState.expenseList.find(item => item.id === id)
     }))
   }
 
   addExpense = () => {
     this.setState((prevState) => ({
       ...prevState,
-      isAddMode: true
+      formData: {},
+      isFormMode: true
+    }))
+  }
+
+  handleCancel = () => {
+    this.setState((prevState) => ({
+      ...prevState,
+      isFormMode: false
     }))
   }
 
@@ -60,14 +67,16 @@ export default class App extends Component {
     return (
       <div className="App">
         <ExpenseTrack
-          formMode={this.state.formMode} 
-          dataToUpdate={this.state.dataToUpdate} 
-          handleFormSubmit={this.handleFormSubmit}
-          isAddMode={this.state.isAddMode}
           list={this.state.expenseList}
+
+          formData={this.state.formData}
+          handleFormSubmit={this.handleFormSubmit}
+          isFormMode={this.state.isFormMode}
           addExpense={this.addExpense}
           onDelete={this.handleListDelete}
-          onUpdate={this.handleListUpdate}>
+          onUpdate={this.handleListUpdate}
+          onCancel={this.handleCancel}
+          >
         </ExpenseTrack>
       </div>
     )
