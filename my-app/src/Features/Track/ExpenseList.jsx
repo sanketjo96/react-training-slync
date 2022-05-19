@@ -1,14 +1,19 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import ExpenseItem from '../../Components/ExpenseItem';
+import './ExpenseList.css'
 
-export default class ExpenseList extends Component {
-  render() {
-    return (
-      <div className='expense-list-container'>
-        {this.props.list.map((data) => {
-          return <ExpenseItem data={data} onDelete={this.props.onDelete} onUpdate={this.props.onUpdate}/>
-        })}
-      </div>
-    )
-  }
-}
+export const ExpenseList = React.forwardRef((props, ref) => {
+  useEffect(() => {
+    if (ref) {
+      ref.current.scrollTop = props.top
+    }
+  }, [props.top, ref])
+
+  return (
+    <div className='expense-list-container' ref={ref}>
+      {props.list.map((data) => {
+        return <ExpenseItem key={data.id} data={data} onDelete={props.onDelete} onUpdate={props.onUpdate} />
+      })}
+    </div>
+  )
+})

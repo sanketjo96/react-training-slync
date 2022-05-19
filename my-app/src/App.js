@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
 import './App.css';
 import { expenseData } from './Data/Seed';
-import ExpenseTrack from './Features/Track/ExpenseTrack';
+import { ExpenseTrack } from './Features/Track/ExpenseTrack';
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      listTop: 0,
       expenseList: expenseData,
       isFormMode: false,
       formData: {}
     }
+    this.childRef = React.createRef()
   }
 
   handleFormSubmit = (data) => {
@@ -51,6 +53,7 @@ export default class App extends Component {
   addExpense = () => {
     this.setState((prevState) => ({
       ...prevState,
+      listTop: this.childRef.current.scrollTop,
       formData: {},
       isFormMode: true
     }))
@@ -67,6 +70,8 @@ export default class App extends Component {
     return (
       <div className="App">
         <ExpenseTrack
+          ref={this.childRef}
+          top={this.state.listTop}
           list={this.state.expenseList}
 
           formData={this.state.formData}
@@ -76,7 +81,7 @@ export default class App extends Component {
           onDelete={this.handleListDelete}
           onUpdate={this.handleListUpdate}
           onCancel={this.handleCancel}
-          >
+        >
         </ExpenseTrack>
       </div>
     )
