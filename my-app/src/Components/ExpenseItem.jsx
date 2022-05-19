@@ -2,6 +2,7 @@ import React from 'react'
 import './ExpenseItem.css'
 import DeleteIcon from '../icons/icons8-remove.svg'
 import EditIcon from '../icons/icons8-edit.svg'
+import { monthMap } from '../Data/Months'
 
 export default function ExpenseItem(props) {
     const {
@@ -25,7 +26,7 @@ export default function ExpenseItem(props) {
 
     return (
         <div key={name} className='expense-item-container'>
-            <div className='expense-item-seg month'>{month}</div>
+            <div className='expense-item-seg month'>{monthMap[month]}</div>
             <div className='expense-item-seg name'>{name}</div>
             <div className='expense-item-seg price'>{price}</div>
 
