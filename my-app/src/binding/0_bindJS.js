@@ -1,4 +1,4 @@
-export default class JSBindings {
+export default class JSobjs {
     constructor(props) {
         this.state = {
             'int': 123
@@ -11,19 +11,19 @@ export default class JSBindings {
     }
 }
 
-const binding = new JSBindings()
+const obj = new JSobjs()
 
 // Calling method directly
-console.log('Calling method directly on object', binding.touchNum())
+console.log('Calling method directly on object', obj.touchNum())
 
 // Calling method indirectly
-const otherTouchNum = binding.touchNum;
+const otherTouchNum = obj.touchNum;
 console.log('Calling method indirectly', otherTouchNum())
 
 
 // Conclusion: - Calling assigned class method losses track of its this
 
 
-// Manual binding
-const boundTouchNum = binding.touchNum;
-console.log('Calling manually bound method', boundTouchNum.bind(binding)())
+// Manual obj
+const boundTouchNum = obj.touchNum;
+console.log('Calling manually bound method', boundTouchNum.bind(obj)())
