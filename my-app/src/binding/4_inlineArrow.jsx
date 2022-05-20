@@ -23,7 +23,7 @@ export default class Bindings extends Component {
 /**
  * Problem
  * 
- * Ohh!! this worked. Wrapping method call under arraow function worked.
+ * Ohh!! this worked. Wrapping method call under arraow function worked. THANKS TO ARROW FUNCTION
  * 
  * But again the problem is on every render new wrapper function will get created
  * which is the perf hit. so can we look for other better way ? YES

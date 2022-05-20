@@ -14,6 +14,9 @@ export default class Bindings extends Component {
     }
 
     render() {
+        // We are assigning this.touchNum to onClick
+        // and it will call that method internally.
+        // But Calling assigned class method losses track of its this 
         return (
             <button onClick={this.touchNum}>Bindings</button>
         )
