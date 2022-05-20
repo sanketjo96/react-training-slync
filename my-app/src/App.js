@@ -4,7 +4,7 @@ import StepTimer from './state/StepTimer';
 function App() {
   return (
     <div className="App">
-      <StepTimer format={24}></StepTimer>
+      <StepTimer format={12}></StepTimer>
     </div>
   );
 }

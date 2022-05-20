@@ -8,7 +8,6 @@ import React, { Component } from 'react'
  * 4. Format should be configurable to switch between 12hrs to 24hrs format
  */
 
-
 export default class StepTimer extends Component {
     constructor(props) {
         super(props)
@@ -26,7 +25,7 @@ export default class StepTimer extends Component {
         return (
             <div>
                 <button onClick={this.setDate}>Refresh</button>
-                <div>{date.toLocaleTimeString('en-US', {hour12: format === 24 ? false : true})}</div>
+                <div>{date.toLocaleTimeString('en-US', { hour12: format === 12 ? true : false })}</div>
             </div>
 
         )
