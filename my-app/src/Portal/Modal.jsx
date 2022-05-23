@@ -11,7 +11,7 @@ export default class Modal extends Component {
   render() {
     return ReactDOM.createPortal(
       <div className={this.props.open ? 'modal show-modal' : 'modal'}>
-        <div className='modal-content '>
+        <div id='modal-content' className='modal-content'>
           <span class="close" onClick={this.props.closeModal}>&times;</span>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
