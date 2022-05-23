@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PureComponentWidget from './PureComponent'
+import PureFunComponent from './PureFunComponent'
 import RegComponent from './RegComponent'
+import RegFunComponent from './RegFunComponent'
 
 export default class Wrapper extends Component {
     constructor(props) {
@@ -21,11 +23,15 @@ export default class Wrapper extends Component {
     }
 
     render() {
+        console.log('---------------------------------')
         console.log('Parent component')
         return (
             <>
                 <RegComponent name='RegComponentWidget'></RegComponent>
                 <PureComponentWidget name='PureComponent'></PureComponentWidget>
+
+                <RegFunComponent name='RegFunComponent'></RegFunComponent>
+                <PureFunComponent name='PureFunComponent'></PureFunComponent>
             </>
         )
     }
