@@ -1,32 +1,23 @@
 import React, { Component } from 'react'
 
-
 /**
- * 1. Note the way we are creating a ref using createRef, attaching to node and acting 
- * 2. Test with callback method (diff btwn using current and direct access)
+ * 1. Note how we are using forwardRef to pass ref and attach
+ * to DOM of child's component
  */
-export default class CustomTextInput extends Component {
-    constructor() {
-        super()
-        this.textInput = React.createRef()
-    }
-
-    focusTextInput = () => {
-        this.textInput.current.focus()
-    }
-
+class CustomTextInputInternal extends Component {
     render() {
         return (
             <div>
                 <input
                     type="text"
-                    ref={this.textInput} />
-                <input
-                    type="button"
-                    value="Focus the text input"
-                    onClick={this.focusTextInput}
-                />
+                    ref={this.props.internalRef} />
             </div>
         )
     }
 }
+
+const CustomTextInput = React.forwardRef((props, ref) => {
+    return <CustomTextInputInternal {...props} internalRef={ref}></CustomTextInputInternal>
+})
+
+export default CustomTextInput;

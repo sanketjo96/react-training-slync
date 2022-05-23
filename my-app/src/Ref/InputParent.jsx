@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import CustomTextInput from './CustomTextInput'
 
 /**
- * 1. Note the way we are accessing child instance and triggering its
- * method.
+ * 1. Note the way we are accessing Child's DOM from parent
  */
 export default class InputParent extends Component {
     constructor() {
@@ -12,12 +11,19 @@ export default class InputParent extends Component {
     }
 
     focusTextInput = () => {
-        this.customInput.focusTextInput()
+        this.customInput.current.focus()
     }
 
     render() {
         return (
-            <div> <CustomTextInput ref={this.customInput}></CustomTextInput></div>
+            <div>
+                <CustomTextInput ref={this.customInput}></CustomTextInput>
+                <input
+                    type="button"
+                    value="Focus the text input"
+                    onClick={this.focusTextInput}
+                />
+            </div>
         )
     }
 }
