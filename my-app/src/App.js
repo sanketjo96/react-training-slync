@@ -1,10 +1,12 @@
 import './App.css';
-import Parent from './Portal/Parent';
+import CarList from './Error/CarList';
+import SafeCarList from './Error/SafeCarList';
 
 function App() {
   return (
     <div className="App">
-     <Parent></Parent>
+     <CarList></CarList>
+     {/* <SafeCarList></SafeCarList> */}
     </div>
   );
 }
