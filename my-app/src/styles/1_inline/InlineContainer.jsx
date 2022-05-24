@@ -6,6 +6,10 @@ const styleProps = {
     backgroundColor: 'yellow'
 }
 
+/**
+ * 1. Note how style attribute used for assigning inline styles
+ * 2. Note camel case of style props (its kabab case in css)
+ */
 export default class InlineContainer extends Component {
     render() {
         return (

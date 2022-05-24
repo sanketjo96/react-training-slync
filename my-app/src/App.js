@@ -7,9 +7,9 @@ import ModuleContainer from './styles/3_cssModule/ModuleContainer';
 function App() {
   return (
     <div className="App">
-     <InlineContainer></InlineContainer>
+     {/* <InlineContainer></InlineContainer> */}
      {/* <CSSContainer></CSSContainer> */}
-     {/* <ModuleContainer></ModuleContainer> */}
+     <ModuleContainer></ModuleContainer>
     </div>
   );
 }
