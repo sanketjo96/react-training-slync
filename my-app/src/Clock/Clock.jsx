@@ -3,9 +3,10 @@ import React, { Component } from 'react'
 export default class Clock extends Component {
     constructor(props) {
         super(props)
+        const is12fmt = this.props.fmt === 12
         this.state = {
             date: new Date(),
-            hrs12: false,
+            hrs12: is12fmt,
         }
     }
 
