@@ -1,27 +1,12 @@
 import React, { Component } from 'react'
+import { cars } from './data';
 import './List.css';
 
-const cars = [
-    {
-        id: '01111',
-        name: 'Maruti800',
-        company: 'Maruti',
-        make: '1992',
-    },
-    {
-        id: '02222',
-        name: 'H1678',
-        company: 'Honda',
-        make: '2008',
-    },
-    {
-        id: '03333',
-        name: 'Indica',
-        company: 'Tata',
-        make: '2003',
-    }
-]
-
+/**
+ * 1. Note the warning for keys on console.
+ * 2. Note the solution for this problem
+ * 3. Note why react asks us to add key
+ */
 export default class CarList extends Component {
     render() {
         return (
