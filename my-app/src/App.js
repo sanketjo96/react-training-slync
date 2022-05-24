@@ -1,12 +1,12 @@
 import './App.css';
-import CarList from './Error/CarList';
-import SafeCarList from './Error/SafeCarList';
+import ClickCounter from './HOC/ClickCounter';
+import HoverCounter from './HOC/HoverCounter';
 
 function App() {
   return (
     <div className="App">
-     <CarList></CarList>
-     {/* <SafeCarList></SafeCarList> */}
+      <ClickCounter></ClickCounter>
+      <HoverCounter></HoverCounter>
     </div>
   );
 }
