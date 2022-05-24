@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import withCounter from './withCounter'
 
 /**
  * 1. Note that how we moved state logic to hoc
@@ -13,4 +12,4 @@ class HoverCounter1 extends Component {
     }
 }
 
-export default withCounter(HoverCounter1)
+export default HoverCounter1

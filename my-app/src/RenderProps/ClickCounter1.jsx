@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import withCounter from './withCounter';
 
 /**
  * 1. Note that how we moved state logic to hoc
@@ -16,4 +15,4 @@ class ClickCounter1 extends Component {
 }
 
 
-export default withCounter(ClickCounter1);
+export default ClickCounter1;

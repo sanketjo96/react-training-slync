@@ -1,9 +1,11 @@
 import './App.css';
-import ClickCounter from './HOC/ClickCounter';
-import HoverCounter from './HOC/HoverCounter';
+import ClickCounter from './RenderProps/ClickCounter';
+import HoverCounter from './RenderProps/HoverCounter';
 
-import ClickCounter1 from './HOC/ClickCounter1'
-import HoverCounter1 from './HOC/HoverCounter1'
+import ClickCounter1 from './RenderProps/ClickCounter1'
+import HoverCounter1 from './RenderProps/HoverCounter1'
+import Counter from './RenderProps/Counter';
+import Sample from './RenderProps/Sample';
 
 /**
  * 
@@ -13,22 +15,26 @@ function App() {
   return (
     <div className="App">
       {/**
-       * Without HOC
+       * Without Render prop
        */}
-      {/* <ClickCounter></ClickCounter>
-      <HoverCounter></HoverCounter> */}
+      <ClickCounter></ClickCounter>
+      <HoverCounter></HoverCounter>
+
+       {/**
+        * passing props as value and as function
+        */}
+      {/* <Sample name={'sanket'}></Sample> */}
 
       {/**
-       * WitH HOC
+       * WitH Render prop
        */}
-      {/* <ClickCounter1></ClickCounter1>
-      <HoverCounter1></HoverCounter1> */}
+      {/* <Counter render={(count, counterHandle) => (
+        <ClickCounter1 counterHandle={counterHandle} count={count}></ClickCounter1>
+      )}></Counter>
 
-      {/**
-       * WitH HOC and prop dirlling
-       */}
-      <ClickCounter1 label={'New Click Counte'}></ClickCounter1>
-      <HoverCounter1 label={'New HoverCounter'}></HoverCounter1>
+      <Counter render={(count, counterHandle) => (
+        <HoverCounter1 counterHandle={counterHandle} count={count}></HoverCounter1>
+      )}></Counter> */}
     </div>
   );
 }
