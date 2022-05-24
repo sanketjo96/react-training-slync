@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 
-export default class HoverCounter extends Component {
+/**
+ * 1. Note that the state logic is common across multiple component
+ * and we are breaking DRYness rule.
+ * 2. If we lift the state up to parent component but what if 
+ * HoverCounter is not direct child of parent, we need lot of prop
+ * drilling.
+ */
+class HoverCounter extends Component {
     constructor(props) {
         super(props)
 
@@ -20,3 +27,5 @@ export default class HoverCounter extends Component {
         )
     }
 }
+
+export default HoverCounter
