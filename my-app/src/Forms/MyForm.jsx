@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 
+/**
+ * 1. Note how react is taking care of updating input elements based on state
+ * 2. Note how even handler gets 'e' to track even data
+ */
 export default class MyForm extends Component {
     constructor(props) {
         super(props)
