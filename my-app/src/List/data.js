@@ -17,6 +17,12 @@ export const cars = [
         name: 'Indica',
         company: 'Tata',
         make: '2003',
+    },
+    {
+        id: '03334',
+        name: 'Sfari',
+        company: 'Tata',
+        make: '2002',
     }
 ]
 

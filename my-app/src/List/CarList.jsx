@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CarItem from './CarItem';
 import { cars } from './data';
 import './List.css';
 
@@ -15,12 +16,11 @@ export default class CarList extends Component {
                     {
                         cars.map(car => {
                             return (
-                                <li key={car.id}>{`${car.name} ${car.company} - ${car.make}`}</li>
+                                <CarItem key={car.id} car={car}></CarItem>
                             )
                         })
                     }
                 </ul>
-
             </div>
         )
     }
