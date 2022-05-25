@@ -1,26 +1,37 @@
-import { useState } from 'react';
+import { Component } from 'react';
 import './App.css';
 import Clock from './Clock/Clock';
 
-function App() {
-  const [isClock, setClock] = useState(true)
-  const [fmt, setFmt] = useState(24)
+class App extends Component {
+  constructor(props) {
+    super(props)
 
-  const destroryClock = () => {
-    setClock(false)
+    this.state = {
+      isClock: true,
+      fmt: 24
+    }
   }
 
-  const toggleFormt = () => {
-    setFmt(fmt === 24 ? 12 : 24)
+  destroryClock = () => {
+    this.setState({ ...this.state, isClock: false })
   }
 
-  return (
-    <div className="App">
-      {isClock && <Clock fmt={fmt}/>}
-      <button onClick={toggleFormt}>Toggle Format</button>
-      <button onClick={destroryClock}>Destroy Clock</button>
-    </div>
-  );
+  toggleFormt = () => {
+    this.setState((prevState) => {
+      return { ...this.state, fmt: prevState.fmt === 24 ? 12 : 24 }
+    })
+  }
+
+  render() {
+    return (
+      <div className="App">
+        {this.state.isClock && <Clock fmt={this.state.fmt} />}
+        <button onClick={this.toggleFormt}>Toggle Format</button>
+        <button onClick={this.destroryClock}>Destroy Clock</button>
+      </div>
+    );
+  }
+
 }
 
 export default App;

@@ -27,6 +27,8 @@ export default class Clock extends Component {
                 ...state,
                 hrs12: is12fmt
             };
+        } else {
+            return null
         }
     }
 
@@ -35,13 +37,14 @@ export default class Clock extends Component {
     }
 
     componentWillUnmount() {
+        console.log('UnMount: componentWillUnmount')
         clearInterval(this.timer)
     }
 
     render() {
         console.log('Update: in render')
         return (
-            <div onMouseOver={this.changeDateState}>{this.state.date.toLocaleTimeString('en-us', { hour12: this.state.hrs12 })}</div>
+            <div>{this.state.date.toLocaleTimeString('en-us', { hour12: this.state.hrs12 })}</div>
         )
     }
 }
