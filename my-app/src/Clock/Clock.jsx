@@ -16,6 +16,7 @@ export default class Clock extends Component {
 
     static getDerivedStateFromProps() {
         console.log('Mounting: in getDerivedStateFromProps')
+        return null
     }
 
     componentDidMount() {
