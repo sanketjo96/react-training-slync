@@ -5,7 +5,9 @@ import React, { useEffect, useState } from 'react'
  */
 export default function FunctionMouse() {
     const [data, setPosition] = useState({ x: 0, y: 0 })
+
     const mouseMoveListner = (e) => {
+        console.log('set state')
         setPosition({ x: e.clientX, y: e.clientY })
     }
 
@@ -16,7 +18,13 @@ export default function FunctionMouse() {
 
 
     // useEffect(() => {
+    //     console.log('attached listner')
     //     window.addEventListener('mousemove', mouseMoveListner)
+    // }, [])
+
+    // useEffect(() => {
+    //     window.addEventListener('mousemove', mouseMoveListner)
+    //     return () => window.removeEventListener('mousemove', mouseMoveListner)
     // }, [])
 
 
