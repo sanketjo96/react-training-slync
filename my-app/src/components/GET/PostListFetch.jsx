@@ -17,12 +17,18 @@ class PostListFetch extends Component {
     }
 
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/posts').then(res => {
-            console.log(res.json())
-            // this.setState({ postList: res.data })
+        fetch('https://jsonplaceholder.typicode.com/posts1')
+        .then(res=> {
+            if (res.ok) {
+                return res.json()
+            } else {
+                throw Error('Fetch error - Route not found')
+            }
+        })
+        .then(res => {
+            this.setState({ postList: res })
         }).catch(e => {
-            console.log(e)
-            // this.setState((prev) => ({ ...prev, isErr: true }))
+            this.setState((prev) => ({ ...prev, isErr: true }))
         })
     }
 
