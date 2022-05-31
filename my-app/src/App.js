@@ -6,6 +6,7 @@ import './App.css';
 // import ClassComponentCondition from './components/ClassComponentCondition';
 // import FunctionComponentCondition from './components/FunctionComponentCondition';
 import ClassComponent from './components/ClassComponent';
+// import FunWrongDep from './components/FunWrongDep';
 // import FunctionComponent from './components/FunctionComponent';
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
       {/* <FunctionMouse></FunctionMouse> */}
 
       {/* <FunMouseContainer></FunMouseContainer> */}
+      
+      {/* <FunWrongDep></FunWrongDep> */}
     </div>
   );
 }
