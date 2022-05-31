@@ -1,16 +1,20 @@
+import { Component } from 'react';
 import './App.css';
-import { Fragment } from './Fragment/Fragment.jsx';
-import Table from './Fragment/Table';
+import WrapperWithContext from './Components/WithContext/WrapperWithContext';
+import WrapperWithoutContext from './Components/WithoutContext/WrapperWithoutContext';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Fragment></Fragment>
-        <Table></Table>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          {/* <WrapperWithoutContext></WrapperWithoutContext> */}
+          <WrapperWithContext></WrapperWithContext>
+        </header>
+      </div>
+    );
+  }
+
 }
 
 export default App;
