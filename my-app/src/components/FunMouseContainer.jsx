@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
-import FunctionMouse from '../FunctionMouse'
+import FunctionMouse from './FunctionMouse'
 
-function MouseContainer() {
+function FunMouseContainer() {
     const [display, setDisplay] = useState(true)
   return (
       <>
           <button onClick={() => setDisplay(!display)}>Toggle Display</button>
           {display && <FunctionMouse></FunctionMouse>}
       </>
-
   )
 }
 
-export default MouseContainer
+export default FunMouseContainer
