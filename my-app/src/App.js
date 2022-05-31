@@ -1,7 +1,7 @@
 
 import './App.css';
-import StateHookArray from './components/StateHookArray';
-// import ClassState from './components/ClassState';
+// import StateHookArray from './components/StateHookArray';
+import ClassState from './components/ClassState';
 // import StateHookObject from './components/StateHookObject';
 // import StateHook from './components/StateHook';
 // import StateHookPrevious from './components/StateHookPrevious';
@@ -9,11 +9,11 @@ import StateHookArray from './components/StateHookArray';
 function App() {
   return (
     <div className="App">
-      {/* <ClassState></ClassState> */}
+      <ClassState></ClassState>
       {/* <StateHook></StateHook> */}
       {/* <StateHookPrevious></StateHookPrevious> */}
       {/* <StateHookObject></StateHookObject> */}
-      <StateHookArray></StateHookArray>
+      {/* <StateHookArray></StateHookArray> */}
     </div>
   );
 }
