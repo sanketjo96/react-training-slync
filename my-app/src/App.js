@@ -1,19 +1,17 @@
 
 import './App.css';
-// import StateHookArray from './components/StateHookArray';
-import ClassState from './components/ClassState';
-// import StateHookObject from './components/StateHookObject';
-// import StateHook from './components/StateHook';
-// import StateHookPrevious from './components/StateHookPrevious';
+// import ClassComponentCondition from './components/ClassComponentCondition';
+import FunctionComponentCondition from './components/FunctionComponentCondition';
+// import ClassComponent from './components/ClassComponent';
+// import FunctionComponent from './components/FunctionComponent';
 
 function App() {
   return (
     <div className="App">
-      <ClassState></ClassState>
-      {/* <StateHook></StateHook> */}
-      {/* <StateHookPrevious></StateHookPrevious> */}
-      {/* <StateHookObject></StateHookObject> */}
-      {/* <StateHookArray></StateHookArray> */}
+      {/* <ClassComponent></ClassComponent>
+      <FunctionComponent></FunctionComponent> */}
+      {/* <ClassComponentCondition></ClassComponentCondition> */}
+      <FunctionComponentCondition></FunctionComponentCondition>
     </div>
   );
 }
