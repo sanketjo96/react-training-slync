@@ -31,7 +31,6 @@ function StateHookPrevious() {
             <div>
                 <button onClick={() => incrementBy5()}>Increment By 5</button>
             </div>
-
         </div>
     )
 }

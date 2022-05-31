@@ -1,13 +1,17 @@
 
 import './App.css';
+// import ClassState from './components/ClassState';
+import StateHookObject from './components/StateHookObject';
 // import StateHook from './components/StateHook';
-import StateHookPrevious from './components/StateHookPrevious';
+// import StateHookPrevious from './components/StateHookPrevious';
 
 function App() {
   return (
     <div className="App">
-        {/* <StateHook></StateHook> */}
-        <StateHookPrevious></StateHookPrevious>
+      {/* <ClassState></ClassState> */}
+      {/* <StateHook></StateHook> */}
+      {/* <StateHookPrevious></StateHookPrevious> */}
+      <StateHookObject></StateHookObject>
     </div>
   );
 }
