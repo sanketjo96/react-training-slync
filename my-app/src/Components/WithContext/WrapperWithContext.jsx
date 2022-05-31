@@ -34,3 +34,9 @@ export default class WrapperWithContext extends Component {
         )
     }
 }
+
+/**
+ * If you missed out on adding CurrencyProvider altogather and have 
+ * default data set during context creation, consumer will recive that 
+ * default data.
+ */
