@@ -8,8 +8,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          {/* <WrapperWithoutContext></WrapperWithoutContext> */}
-          <WrapperWithContext></WrapperWithContext>
+          <WrapperWithoutContext></WrapperWithoutContext>
+          {/* <WrapperWithContext></WrapperWithContext> */}
         </header>
       </div>
     );
