@@ -1,25 +1,18 @@
-import React, { Component } from 'react'
-import { CurrencyConsumer } from '../../Context/CurrencyContext'
+import React, { useContext } from 'react'
+import { CurrencyContext } from '../../Context/CurrencyContext'
 import Currency from './Currency'
 
 /**
- * 5. Passing function as child to consumer component.
- * function will take context value as param and one can return required mark up using
- * context  
+ * 5. useContext hook can be used instead of consumer component which makes it cleaner
+ * to consume 
  */
-export default class ComponentF extends Component {
-    render() {
-        return (
-            <div>Component F
-                <CurrencyConsumer>
-                    {
-                        (currency) => {
-                            return <Currency currency={currency}></Currency>
-                        }
-                    }
-                </CurrencyConsumer>
-
-            </div>
-        )
-    }
+function ComponentF() {
+    const currency = useContext(CurrencyContext)
+    return (
+        <div>Component F
+            <Currency currency={currency}></Currency>
+        </div>
+    )
 }
+
+export default ComponentF
