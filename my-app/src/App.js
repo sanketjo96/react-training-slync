@@ -7,9 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <SimpleReducer></SimpleReducer>
-        {/* <ComplexReducer></ComplexReducer> */}
-        {/* <MultipleReducer></MultipleReducer> */}
+        
       </header>
     </div>
   );
