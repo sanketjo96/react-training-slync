@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import Col from './Col'
 
 /**
- * Real lif use-case to compose components
+ * Real life use-case to compose components
  * and fragment feels handy
  */
 export default class Table extends Component {
@@ -9,12 +10,10 @@ export default class Table extends Component {
         return (
             <table border={1}>
                 <tr>
-                    <td>Hello</td>
-                    <td>World</td>
+                    <Col></Col>
                 </tr>
                 <tr>
-                    <td>Hello1</td>
-                    <td>World2</td>
+                    <Col></Col>
                 </tr>
             </table>
         )

@@ -7,10 +7,10 @@ export class Fragment extends Component {
          * - Wrapper div seems odd
          */
         return (
-            <div>
+            <>
                 <div>Fragment1</div>
                 <div>Fragment2</div>
-            </div>
+            </>
         )
     }
 }
