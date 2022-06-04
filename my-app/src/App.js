@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import './App.css';
-import RootWithContext from './Components/withContext/RootWithContext';
+import RootWithMultiContext from './Components/multiContext/RootWithMultiContext';
+// import RootWithContext from './Components/withContext/RootWithContext';
 // import RootWithoutContext from './Components/withoutContext/Root';
 
 class App extends Component {
@@ -9,7 +10,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           {/* <RootWithoutContext></RootWithoutContext> */}
-          <RootWithContext></RootWithContext>
+          {/* <RootWithContext></RootWithContext> */}
+          <RootWithMultiContext></RootWithMultiContext>
         </header>
       </div>
     );
