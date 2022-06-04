@@ -11,37 +11,38 @@ class PostListFetch extends Component {
         super(props)
 
         this.state = {
-            postList: [],
-            isErr: false
+            posts: [],
+            err: false
         }
     }
 
     componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/posts1')
-        .then(res=> {
-            if (res.ok) {
-                return res.json()
-            } else {
-                throw Error('Fetch error - Route not found')
-            }
-        })
-        .then(res => {
-            this.setState({ postList: res })
-        }).catch(e => {
-            this.setState((prev) => ({ ...prev, isErr: true }))
-        })
+            .then((res) => {
+                if (res.ok) {
+                    return res.json()
+                } else {
+                    throw Error('API error!!')
+                }
+            })
+            .then((data) => {
+                console.log('2nd then', data)
+                this.setState((prev) => ({ ...prev, posts: data }))
+            }).catch(e => {
+                this.setState((prev) => ({ ...prev, err: true }))
+                console.log('catch', e)
+            })
     }
 
     render() {
-        return (
-            this.state.isErr ? <span>Some Error occurred</span> : (
-                this.state.postList.map((post, index) => (
-                    <div className="newsPost" key={post.id}>
-                        <span>Title {index + 1}  {post.title}</span>
-                    </div>
-                ))
-            )
-        )
+        return this.state.err ? <>API Err</> : (this.state.posts.length ? (
+            <ol>
+                {this.state.posts.map(post => (
+                    <li key={post.id}>{post.title}</li>
+                ))}
+            </ol>
+
+        ) : <>No Data</>)
     }
 }
 

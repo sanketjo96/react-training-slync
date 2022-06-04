@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import axios from 'axios';
 import './Post.css'
 
 /**
@@ -12,35 +12,30 @@ export class PostList extends Component {
         super(props)
 
         this.state = {
-            postList: [],
-            isErr: false
+            posts: [],
+            err: false
         }
     }
 
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/posts').then(res => {
-            this.setState({ postList: res.data })
+        axios.get('https://jsonplaceholder.typicode.com/posts').then((res) => {
+            const { data } = res
+            this.setState((prev) => ({ ...prev, posts: data }))
         }).catch(e => {
+            this.setState((prev) => ({ ...prev, err: true }))
             console.log(e)
-            // this.setState((prev) => ({ ...prev, isErr: true }))
         })
     }
 
     render() {
-        return (
-            this.state.postList.map((post, index) => (
-                <div className="newsPost" key={post.id}>
-                    <span>Title {index + 1}  {post.title}</span>
-                </div>
-            ))
-            // this.state.isErr ? <span>Some Error occurred</span> : (
-            //     this.state.postList.map((post, index) => (
-            //         <div className="newsPost" key={post.id}>
-            //             <span>Title {index + 1}  {post.title}</span>
-            //         </div>
-            //     ))
-            // )
-        )
+        return this.state.err ? <>API Err</> : (this.state.posts.length ? (
+            <ol>
+                {this.state.posts.map(post => (
+                    <li key={post.id}>{post.title}</li>
+                ))}
+            </ol>
+
+        ) : <>No Data</>)
     }
 }
 
