@@ -1,12 +1,14 @@
 import './App.css';
+import PostListAdd from './components/POST/PostListAdd';
 // import PostListFetch from './components/GET/PostListFetch';
-import PostList from './components/GET/PostList';
+// import PostList from './components/GET/PostList';
 
 function App() {
   return (
     <div className="App">
-      <PostList></PostList>
+      {/* <PostList></PostList> */}
       {/* <PostListFetch></PostListFetch> */}
+      <PostListAdd></PostListAdd>
     </div>
   );
 }
