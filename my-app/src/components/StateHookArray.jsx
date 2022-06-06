@@ -6,26 +6,33 @@ import React, { useState } from 'react'
  * state of array and then add new item
  */
 export default function StateHookArray() {
-    const [items, setItems] = useState([])
+    const [list, setList] = useState(['1', '2', '333', '55'])
 
-    const addItem = (e) => {
-        setItems((prev) => ([...prev, {
-            id: prev.length,
-            name: Math.random(100)
-        }]))
+    const addItem = () => {
+        setList([...list, Math.random()])
+    }
+
+    const updateItem = (numberToUpdate) => {
+        setList(list.map(item => {
+            if (item === numberToUpdate) {
+                return Math.random()
+            } else {
+                return item
+            }
+        }))
     }
 
     return (
         <div>
-            <label>Add Item</label>
-            <button onClick={addItem}>Add Item</button>
-            <ul>
-
-                {items.map(item => (
-                    <li key={item.id}>{item.name}</li>
-                ))}
-
-            </ul>
+            <button onClick={addItem}>Add</button>
+            {list.map(item => {
+                return (
+                    <li key={item}>
+                        {item}
+                        <button onClick={() => updateItem(item)}>Update</button>
+                    </li>
+                )
+            })}
         </div>
     )
 }

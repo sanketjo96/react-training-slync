@@ -6,34 +6,23 @@ import React, { useState } from 'react'
  * both of inputs. How to fix this ? 
  */
 export default function StateHookObject() {
-    const [form, setForm] = useState({ firstName: '', lastName: '' })
-    const fnameHandler = (e) => {
-        setForm((prev) => ({
-            firstName: e.target.value
-        }))
+    const [emp, setEmp] = useState({ fname: '', lname: '' })
+
+    const fNameChange = (e) => {
+        setEmp({ ...emp, fname: e.target.value })
     }
 
-    const lnameHandler = (e) => {
-        setForm((prev) => ({
-            lastName: e.target.value
-        }))
+    const lNameChange = (e) => {
+        setEmp({ ...emp, lname: e.target.value })
     }
 
     return (
         <div>
-            <form>
-                <label>
-                    First Name
-                </label>
-                <input id="fn" onChange={fnameHandler} value={form.firstName}></input>
-                <label>
-                    Last Name
-                </label>
-                <input id="ln" onChange={lnameHandler} value={form.lastName}></input>
-                <div>
-                   {JSON.stringify(form)}
-                </div>
-            </form>
+            Fanme: <input onChange={fNameChange} value={emp.fname}></input>
+            LName: <input onChange={lNameChange} value={emp.lname}></input>
+            <div>
+                {JSON.stringify(emp)}
+            </div>
         </div>
     )
 }

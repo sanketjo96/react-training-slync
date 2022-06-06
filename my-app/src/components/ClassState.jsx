@@ -9,11 +9,11 @@ export default class ClassState extends Component {
         }
     }
 
-    incrementBy5 = () => {
-        for (let i = 0; i < 5; i++) {
-            this.setState({ count: this.state.count + 1 })
-        }
-    }
+    // incrementBy5 = () => {
+    //     for (let i = 0; i < 5; i++) {
+    //         this.setState({ count: this.state.count + 1 })
+    //     }
+    // }
 
     incrementBy5 = () => {
         for (let i = 0; i < 5; i++) {

@@ -7,17 +7,17 @@ function StateHookPrevious() {
      * Note how this handler works. 
      * setCount refers to staled value.
      */
-    const incrementBy5 = () => {
-        for (let i = 0; i < 5; i++) {
-            setCount(count + 1)
-        }
-    }
-
     // const incrementBy5 = () => {
     //     for (let i = 0; i < 5; i++) {
-    //         setCount((c) => c + 1)
+    //         setCount(count + 1)
     //     }
     // }
+
+    const incrementBy5 = () => {
+        for (let i = 0; i < 5; i++) {
+            setCount((prevState) => prevState + 1)
+        }
+    }
 
     return (
         <div>
