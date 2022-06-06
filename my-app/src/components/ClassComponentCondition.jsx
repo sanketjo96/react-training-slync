@@ -20,11 +20,6 @@ export default class ClassComponentCondition extends Component {
     componentDidUpdate(prevProps, prevState) {
         console.log('Updating document title')
         document.title = `Clicked ${this.state.count} times`
-
-        // if (prevState.count !== this.state.count) {
-        //     console.log('Updating document title')
-        //     document.title = `Clicked ${this.state.count} times`
-        // }
     }
 
     handleClick = () => {

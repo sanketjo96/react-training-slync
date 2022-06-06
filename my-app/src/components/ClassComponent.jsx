@@ -11,12 +11,13 @@ export default class ClassComponent extends Component {
             count: 0
         }
     }
+
     componentDidMount() {
-        document.title = `Clicked ${this.state.count} times`
+        document.title = `Button Clicked ${this.state.count} times`
     }
 
     componentDidUpdate(prevProps, prevState) {
-        document.title = `Clicked ${this.state.count} times`
+        document.title = `Button Clicked ${this.state.count} times`
     }
 
     handleClick = () => {

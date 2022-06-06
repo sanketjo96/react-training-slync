@@ -7,16 +7,17 @@ import React, { useEffect, useState } from 'react'
  * 
  */
 export default function FunctionComponent() {
-    const [count, setCount] = useState(0)
+    const [state, setCount] = useState({ count: 0 })
 
     useEffect(() => {
-        document.title = `Clicked ${count} times`
+        document.title = `Button Clicked ${state.count} times`
     })
 
     const handleClick = () => {
-        setCount(count + 1)
+        setCount({ count: state.count + 1 })
     }
+
     return (
-        <div onClick={handleClick}>FunctionComponent</div>
+        <div onClick={handleClick}>Functional Component</div>
     )
 }
