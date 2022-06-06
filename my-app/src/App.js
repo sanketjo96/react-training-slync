@@ -1,15 +1,16 @@
 import { Component } from 'react';
 import './App.css';
-// import MultiContext from './Components/MultiContext/MultiContext';
-import WrapperWithContext from './Components/WithContext/WrapperWithContext';
+// import RootWithMultiContext from './Component/WithMultiContext/RootWithMultiContext'
+import RootWithContext from './Component/WithContext/RootWithContext';
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <WrapperWithContext></WrapperWithContext>
-          {/* <MultiContext></MultiContext> */}
+          <RootWithContext></RootWithContext>
+          {/* <RootWithMultiContext></RootWithMultiContext> */}
         </header>
       </div>
     );
