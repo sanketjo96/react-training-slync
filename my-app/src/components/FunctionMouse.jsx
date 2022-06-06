@@ -6,27 +6,19 @@ import React, { useEffect, useState } from 'react'
 export default function FunctionMouse() {
     const [data, setPosition] = useState({ x: 0, y: 0 })
 
-    const mouseMoveListner = (e) => {
-        console.log('set state')
+    const setValues = (e) => {
+        // console.log('inside setValues')
         setPosition({ x: e.clientX, y: e.clientY })
     }
 
     useEffect(() => {
-        console.log('attached listner')
-        window.addEventListener('mousemove', mouseMoveListner)
-    })
+        console.log('effect run')
+        document.addEventListener('mousemove', setValues)
 
-
-    // useEffect(() => {
-    //     console.log('attached listner')
-    //     window.addEventListener('mousemove', mouseMoveListner)
-    // }, [])
-
-    // useEffect(() => {
-    //     window.addEventListener('mousemove', mouseMoveListner)
-    //     return () => window.removeEventListener('mousemove', mouseMoveListner)
-    // }, [])
-
+        return () => {
+            console.log('cleanup')
+        }
+    }, [])
 
     return (
         <div>x: {data.x}, y: {data.y}</div>

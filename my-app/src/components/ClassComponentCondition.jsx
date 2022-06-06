@@ -14,12 +14,15 @@ export default class ClassComponentCondition extends Component {
         }
     }
     componentDidMount() {
+        console.log('Updating document title from componentDidMount')
         document.title = `Clicked ${this.state.count} times`
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log('Updating document title')
-        document.title = `Clicked ${this.state.count} times`
+        if (prevState.count !== this.state.count) {
+            console.log('Updating document title from componentDidUpdate')
+            document.title = `Clicked ${this.state.count} times`
+        }
     }
 
     handleClick = () => {
@@ -27,7 +30,7 @@ export default class ClassComponentCondition extends Component {
     }
 
     handleChange = (e) => {
-        this.setState({ ...this.state, name: e.target.value })
+        this.setState({ name: e.target.value })
     }
 
     render() {

@@ -13,18 +13,22 @@ export default class ClassMouse extends Component {
         }
     }
 
-    mouseMoveListner = (e) => {
+    setValues = (e) => {
         this.setState({ x: e.clientX, y: e.clientY })
     }
 
     componentDidMount() {
-        console.log('attached listner')
-        window.addEventListener('mousemove', this.mouseMoveListner)
+        document.addEventListener('mousemove', this.setValues)
+    }
+
+    componentWillUnmount() {
+        console.log('unmount');
+        document.removeEventListener('mousemove', this.setValues)
     }
 
     render() {
         return (
-            <div>x: {this.state.x}, y: {this.state.y}</div>
+            <div>X: {this.state.x}, Y: {this.state.y} </div>
         )
     }
 }

@@ -8,17 +8,14 @@ export default function FunctionComponentCondition() {
     const [data, setData] = useState({ count: 0, name: '' })
 
     useEffect(() => {
-        console.log('Updating doc title')
         document.title = `Clicked ${data.count} times`
-    })
+    }, [data.count])
 
-    // useEffect(() => {
-    //     console.log('Updating doc title')
-    //     document.title = `Clicked ${data.count} times`
-    // }, [data.count])
+    useEffect(() => {
+        console.log(data.name.length)
+    }, [data.name])
 
     const handleClick = () => {
-        console.log(data)
         setData({...data, count: data.count + 1})
     }
 
