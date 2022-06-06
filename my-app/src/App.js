@@ -1,13 +1,13 @@
 
 import './App.css';
 import DataFetch from './components/DataFetch';
-import User from './components/User';
+// import User from './components/User';
 
 function App() {
   return (
     <div className="App">
-      {/* <DataFetch></DataFetch> */}
-      <User></User>
+      <DataFetch></DataFetch>
+      {/* <User></User> */}
     </div>
   );
 }
