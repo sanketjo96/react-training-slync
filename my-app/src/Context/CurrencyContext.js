@@ -11,3 +11,4 @@ export const CurrencyContext = React.createContext()
 // const CurrencyContext = React.createContext('NSD')
 
 export const CurrencyProvider = CurrencyContext.Provider
+export const CurrencyConsumer = CurrencyContext.Consumer
