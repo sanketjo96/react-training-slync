@@ -1,7 +1,7 @@
 import './App.css';
 // import ComplexReducer from './Component/ComplexReducer';
 // import MultipleReducer from './Component/MultipleReducer';
-import SimpleReducer from './Component/SimpleReducer';
+// import SimpleReducer from './Component/SimpleReducer';
 
 function App() {
   return (

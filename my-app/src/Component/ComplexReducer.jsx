@@ -1,6 +1,8 @@
 import React, { useReducer } from 'react'
 
-const initialState = { firstCounter: 0 };
+const initialState = {
+    firstCounter: 0,
+}
 
 /**
  * 1. Note how action  is now object and not simple string. This is useful to reuse same logic for specific 
@@ -9,15 +11,13 @@ const initialState = { firstCounter: 0 };
 const reducer = (currentState, action) => {
     switch (action.type) {
         case 'INCREMENT':
-            return { firstCounter: currentState.firstCounter + 1 };
+            return { ...currentState, firstCounter: currentState.firstCounter + action.payload }
         case 'DECREMENT':
-            return { firstCounter: currentState.firstCounter - 1 }
-        // case 'INCREMENT':
-        //     return { firstCounter: currentState.firstCounter + action.value };
-        // case 'DECREMENT':
-        //     return { firstCounter: currentState.firstCounter - action.value }
+            return { ...currentState, firstCounter: currentState.firstCounter - action.payload }
         case 'RESET':
-            return initialState;
+            return { ...currentState, firstCounter: initialState.firstCounter }
+        case 'INPUT':
+            return { ...currentState, input: action.payload.target.value }
         default:
             return currentState
     }
@@ -28,20 +28,18 @@ const reducer = (currentState, action) => {
  * one counter state to manage.
  */
 function ComplexReducer() {
-    const [count, dispatch] = useReducer(reducer, initialState)
+    const [newState, dispatch] = useReducer(reducer, initialState)
+
     return (
         <>
-            <div>
-                <div>First Counter: {count.firstCounter}</div>
-                <button onClick={() => dispatch({ type: 'INCREMENT' })}>Increment</button>
-                <button onClick={() => dispatch({ type: 'DECREMENT' })}>Decrement</button>
-                {/* <button onClick={() => dispatch({ type: 'INCREMENT', value: 5 })}>Increment By 5</button> */}
-                <button onClick={() => dispatch({ type: 'RESET' })}>Reset</button>
-            </div>
-            
-            <div>
+            <div>{JSON.stringify(newState)}</div>
 
-            </div>
+            <button onClick={() => dispatch({ type: 'INCREMENT', payload: 1 })}>Increment</button>
+            <button onClick={() => dispatch({ type: 'DECREMENT', payload: 1 })}>Decrement</button>
+            <button onClick={() => dispatch({ type: 'RESET' })}>Reset</button>
+
+            <button onClick={() => dispatch({ type: 'INCREMENT', payload: 5 })}>Increment 5</button>
+            <button onClick={() => dispatch({ type: 'INCREMENT', payload: 10 })}>Increment 10</button>
         </>
 
     )
