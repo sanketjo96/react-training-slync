@@ -3,15 +3,15 @@ import { CounterContext } from '../Context/Counter'
 import Counter from './Counter'
 
 function D() {
-  const { count, dispatch } = useContext(CounterContext)
+  const context = useContext(CounterContext)
   return (
     <div>
       <Counter
-        name={'D: '}
-        count={count}
-        increment={() =>dispatch({ type: 'INCREMENT', value: 2 })}
-        decrement={() =>dispatch({ type: 'DECREMENT', value: 2 })}
-        reset={() => dispatch('RESET')}>
+        name="D: "
+        count={context.count}
+        increment={(e) => context.dispatch({ type: 'INCREMENT', payload: 1 })}
+        decrement={(e) => context.dispatch({ type: 'DECREMENT', payload: 1 })}
+        reset={(e) => context.dispatch({ type: 'RESET' })}>
       </Counter>
     </div>
   )
