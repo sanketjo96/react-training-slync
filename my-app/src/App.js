@@ -1,4 +1,5 @@
 import './App.css';
+// import DataFetchReducer from './Component/DataFetchReducer';
 // import ComplexReducer from './Component/ComplexReducer';
 // import MultipleReducer from './Component/MultipleReducer';
 // import SimpleReducer from './Component/SimpleReducer';
@@ -10,6 +11,7 @@ function App() {
         <SimpleReducer></SimpleReducer>
         {/* <ComplexReducer></ComplexReducer> */}
         {/* <MultipleReducer></MultipleReducer> */}
+        {/* <DataFetchReducer></DataFetchReducer> */}
       </header>
     </div>
   );
