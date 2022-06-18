@@ -60,13 +60,13 @@ export default class ExpenseForm extends Component {
             <div className='expense-form'>
                 <form onSubmit={this.submitHandler}>
                     <div class="text-input">
-                        <label for="input1">Item Name</label>
-                        <input for="input1" type="text" value={this.state.name} onChange={this.handleName}></input>
+                        <label>Item Name</label>
+                        <input type="text" value={this.state.name} onChange={this.handleName}></input>
                     </div>
 
                     <div class="text-input">
                         <label id="input2">Item Price</label>
-                        <input for="input2" type="text" value={this.state.price} onChange={this.handlePrice}></input>
+                        <input  type="text" value={this.state.price} onChange={this.handlePrice}></input>
 
                     </div>
 
