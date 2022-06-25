@@ -11,24 +11,24 @@ export default class Clock extends Component {
         this.state = {
             date: new Date()
         }
-        console.log('Mounting: in constructor')
+        console.log('Clock Mounting: in constructor')
     }
 
-    static getDerivedStateFromProps() {
-        console.log('Mounting: in getDerivedStateFromProps')
+    static getDerivedStateFromProps(nextProp, nextState) {
+        console.log('Clock Mounting: in getDerivedStateFromProps')
         return null
     }
 
     componentDidMount() {
-        console.log('Mounting: in componentDidMount')
+        console.log('Clock Mounting: in componentDidMount')
     }
 
     render() {
-        console.log('Mounting: in render')
+        console.log('Clock Mounting: in render')
         return (
             <div>
                 {this.state.date.toLocaleTimeString()}
-                {/* <Tick></Tick> */}
+                <Tick></Tick>
             </div>
         )
     }
