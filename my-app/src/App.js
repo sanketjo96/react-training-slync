@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   destroryClock = () => {
-    this.setState({isClock: false})
+    this.setState({ isClock: false })
   }
 
   render() {

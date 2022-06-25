@@ -30,10 +30,10 @@ export default class Clock extends Component {
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('Update: in getSnapshotBeforeUpdate')
-        return {scroll: '100'}
+        return { scroll: '100' }
     }
 
-    componentDidUpdate(prevProps, prevState,data) {
+    componentDidUpdate(prevProps, prevState, data) {
         console.log(data)
         console.log('Update: in componentDidUpdate')
     }
@@ -41,7 +41,7 @@ export default class Clock extends Component {
     componentWillUnmount() {
         console.log('Unmount: in componentWillUnmount')
     }
- 
+
     render() {
         console.log('Update: in render')
         return (
